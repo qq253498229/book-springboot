@@ -12,19 +12,17 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 | :--- |
 | 请确保控制台可以显示INFO级别的日志，否则密码你可能会找不到密码。 |
 
-
-
 如果你想改变默认密码请配置`security.user.password`，其它配置可以在这里查看[`SecurityProperties`](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/SecurityProperties.java)（它们都是以\`security\`作为前缀）。
 
-默认 的安全配置类需要实现`SecurityAutoConfiguration`，
-
-The default security configuration is implemented in`SecurityAutoConfiguration`and in the classes imported from there \(`SpringBootWebSecurityConfiguration`for web security and`AuthenticationManagerConfiguration`for authentication configuration which is also relevant in non-web applications\). To switch off the default web application security configuration completely you can add a bean with`@EnableWebSecurity`\(this does not disable the authentication manager configuration or Actuator’s security\). To customize it you normally use external properties and beans of type`WebSecurityConfigurerAdapter`\(e.g. to add form-based login\).
+默认 的安全配置是在`SecurityAutoConfiguration`以及它导入的类中实现的\(包括WEB安全`SpringBootWebSecurityConfiguration`，认证配置`AuthenticationManagerConfiguration`，这些都同样适用于非WEB应用\)。如果你想完全关闭默认的WEB安全配置，你可以使用`@EnableWebSecurity`添加一个bean\(这不会关闭认证管理配置和Actuator安全配置\)。如果你想定制这些配置，你可以使用外部属性或者是继承`WebSecurityConfigurerAdapter`的类\(比如你想添加一个基于表单的登录\)。
 
 | ![](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/images/note.png "\[Note\]") |
 | :--- |
-| If you add`@EnableWebSecurity`and also disable Actuator security, you will get the default form-based login for the entire application unless you add a custom`WebSecurityConfigurerAdapter`. |
+| 如果你既添加了`@EnableWebSecurity`，又禁止了actuator安全，那么整个应用都会默认基于表单登录，除非你配置了一个继承于`WebSecurityConfigurerAdapter`的类。 |
 
-To also switch off the authentication manager configuration you can add a bean of type`AuthenticationManager`, or else configure the global`AuthenticationManager`by autowiring an`AuthenticationManagerBuilder`into a method in one of your`@Configuration`classes. There are several secure applications in the[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/)to get you started with common use cases.
+想要关闭认证管理器的话，可以实现`AuthenticationManager`；或者是将`AuthenticationManagerBuilder`注入在一个方法里，然后将这个类加上`@Configuration`注解，这样就配置了一个全局的`AuthenticationManager`。在Spring示例项目中（[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/)）有几个例子可以让您开始快速上手。
+
+
 
 The basic features you get out of the box in a web application are:
 
