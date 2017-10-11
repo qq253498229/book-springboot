@@ -33,7 +33,7 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 | ![](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/images/note.png "\[Note\]") |
 | :--- |
-| By default, a`WebSecurityConfigurerAdapter`will match any path. If you don’t want to completely override Spring Boot’s auto-configured access rules, your adapter must explicitly configure the paths that you do want to override. |
+| 默认情况，WebSecurityConfigurerAdapter会匹配 |
 
 
 
