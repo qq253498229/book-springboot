@@ -24,7 +24,8 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 在Web应用中，您可以获得这些基本的功能：
 
-
+* AuthenticationManager，它可以通过内存的方式存储单个用户（请查看SecurityProperties.User这个类中的几个属性）。
+* 您可以忽略常见静态资源的不安全路径（比如`/css/**`**\` ，/js/**，/images/**，/webjars/**和**/favicon.ico等\`**）。
 
 The basic features you get out of the box in a web application are:
 
