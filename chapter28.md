@@ -22,6 +22,10 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 想要关闭认证管理器的话，可以实现`AuthenticationManager`；或者是将`AuthenticationManagerBuilder`注入在一个方法里，然后将这个类加上`@Configuration`注解，这样就配置了一个全局的`AuthenticationManager`。在Spring示例项目中（[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/)）有几个例子可以让您快速上手。
 
+在Web应用中，您可以获得这些基本的功能：
+
+
+
 The basic features you get out of the box in a web application are:
 
 * An
