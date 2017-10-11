@@ -24,34 +24,12 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 
 在Web应用中，您可以获得这些基本的功能：
 
-* AuthenticationManager，它可以通过内存的方式存储单个用户（请查看SecurityProperties.User这个类中的几个属性）。
-* 您可以忽略常见静态资源的不安全路径（比如`/css/**` ，`/js/**`，`/images/**`，`/webjars/**` 和`**/favicon.ico` 等）。
+* AuthenticationManager，它可以通过内存的方式存储单个用户（请查看SecurityProperties.User这个类中的几个属性）
+* 您可以忽略常见静态资源的不安全路径（比如`/css/**` ，`/js/**`，`/images/**`，`/webjars/**` 和`**/favicon.ico` 等）
+* 所有HTTP请求的基本安全
+* 默认情况下，Spring Security的低级别安全选项都是打开的\(包括HSTS, XSS, CSRF, caching\)
 
-The basic features you get out of the box in a web application are:
-
-* An
-  `AuthenticationManager`
-  bean with in-memory store and a single user \(see
-  `SecurityProperties.User`
-  for the properties of the user\).
-* Ignored \(insecure\) paths for common static resource locations \(
-  `/css/**`
-  ,
-  `/js/**`
-  ,
-  `/images/**`
-  ,
-  `/webjars/**`
-  and
-  `**/favicon.ico`
-  \).
-* HTTP Basic security for all other endpoints.
-* Security events published to Spring’s
-  `ApplicationEventPublisher`
-  \(successful and unsuccessful authentication and access denied\).
-* Common low-level features \(HSTS, XSS, CSRF, caching\) provided by Spring Security are on by default.
-
-All of the above can be switched on and off or modified using external properties \(`security.*`\). To override the access rules without changing any other auto-configured features add a`@Bean`of type`WebSecurityConfigurerAdapter`with`@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)`and configure it to meet your needs.
+上面 所有的配置你都可以通过外部的配置文件\(前缀security.\*\)来打开、关闭或修改它们。如果你想覆盖访问规则而不改变其它默认的功能，可以继承`WebSecurityConfigurerAdapter`，并在类上加上`@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)`,之后就可以配置它们来实现您自己的需求了。
 
 | ![](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/images/note.png "\[Note\]") |
 | :--- |
