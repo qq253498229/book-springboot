@@ -20,9 +20,7 @@ Using default security password: 78fa095d-3f4c-48b1-ad50-e24c31d5cf35
 | :--- |
 | 如果你既添加了`@EnableWebSecurity`，又禁止了actuator安全，那么整个应用都会默认基于表单登录，除非你配置了一个继承于`WebSecurityConfigurerAdapter`的类。 |
 
-想要关闭认证管理器的话，可以实现`AuthenticationManager`；或者是将`AuthenticationManagerBuilder`注入在一个方法里，然后将这个类加上`@Configuration`注解，这样就配置了一个全局的`AuthenticationManager`。在Spring示例项目中（[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/)）有几个例子可以让您开始快速上手。
-
-
+想要关闭认证管理器的话，可以实现`AuthenticationManager`；或者是将`AuthenticationManagerBuilder`注入在一个方法里，然后将这个类加上`@Configuration`注解，这样就配置了一个全局的`AuthenticationManager`。在Spring示例项目中（[Spring Boot samples](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/)）有几个例子可以让您快速上手。
 
 The basic features you get out of the box in a web application are:
 
